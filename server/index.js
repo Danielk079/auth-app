@@ -12,7 +12,10 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
+        'https://auth-app-frontend.vercel.app',
+    ],
     credentials: true,
 }));
 

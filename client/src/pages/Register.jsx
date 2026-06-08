@@ -23,7 +23,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/register',
+        'https://auth-app-backend-7t1a.onrender.com/api/auth/register',
         formData
       )
       localStorage.setItem('token', response.data.token)
