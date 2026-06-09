@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./db');
 const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -31,10 +32,11 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 
 //Health check route
 app.get('/', ( req, res) => {
-    res.json({ message: 'API is running'});
+    res.json({ message: 'API is running!' });
 });
 
 app.listen(PORT, () => {

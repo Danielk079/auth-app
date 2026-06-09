@@ -20,6 +20,26 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6,
     },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
+    },
+    lastLogin: {
+        type: Date,
+        default: null,
+    },
+    lastLoginDuration: {
+        type: Number,
+        default: 0,
+    },
+    LoginHistory: [
+        {
+            loginTime: { type: Date },
+            logoutTime: { type: Date },
+            duration: { type: Number },
+        }
+    ],
 }, { timestamps: true });
 
 // hash password b4 saving to db

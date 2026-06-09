@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+// Protect middleware - checks if user is logged in
 const protect = async (req, res, next) => {
     try {
         let token;
@@ -30,4 +31,13 @@ const protect = async (req, res, next) => {
     }
 };
 
-module.exports = protect;
+// Admin middleware - checks if user is an admin
+const adminOnly = (req, res, next) => {
+    if (req.user && req.user.role === 'admin') {
+        next();
+    } else {
+        res.status(403).json({ error: 'Not authorized, admin only'});
+    }
+};
+
+module.exports = { protect, adminOnly };
