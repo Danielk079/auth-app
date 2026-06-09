@@ -32,7 +32,7 @@ function Register() {
         username: response.data.username,
         email: response.data.email,
       }))
-      navigate('/dashboard')
+      navigate('/login')
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong')
     } finally {
