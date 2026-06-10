@@ -113,7 +113,7 @@ function AdminDashboard() {
       {/* Theme toggle */}
       <button
         onClick={toggleTheme}
-        className={`fixed top-10 right-50 p-2 rounded-full text-xl transition ${isDark ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800 shadow'}`}
+        className={`fixed top-10 right-35 p-2 rounded-full text-xl transition ${isDark ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800 shadow'}`}
       >
         {isDark ? '☀️' : '🌙'}
       </button>
