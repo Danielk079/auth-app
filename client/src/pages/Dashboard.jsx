@@ -81,7 +81,7 @@ function Dashboard() {
             </div>
             <div>
               <h2 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Welcome back, {user.username}! 👋
+                Welcome back, {user.username}! 
               </h2>
               <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                 {user.email}

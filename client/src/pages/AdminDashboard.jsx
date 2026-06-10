@@ -113,7 +113,7 @@ function AdminDashboard() {
       {/* Theme toggle */}
       <button
         onClick={toggleTheme}
-        className={`fixed top-4 right-4 p-2 rounded-full text-xl transition ${isDark ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800 shadow'}`}
+        className={`fixed top-10 right-50 p-2 rounded-full text-xl transition ${isDark ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800 shadow'}`}
       >
         {isDark ? '☀️' : '🌙'}
       </button>
@@ -127,7 +127,7 @@ function AdminDashboard() {
               Admin Dashboard
             </h1>
             <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-              Welcome back, {admin?.username} 👋
+              Welcome back, {admin?.username} 
             </p>
           </div>
           <button
