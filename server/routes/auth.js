@@ -1,19 +1,32 @@
 const express = require('express');
+const { protect } = require('../middleware/protect');
 const {
   registerUser,
+  verifyEmailOTP,
   loginUser,
+  verifyLoginOTP,
   logoutUser,
+  forgotPassword,
+  resetPassword,
+  changePassword,
+  verifyChangePassword,
+  resendOTP,
 } = require('../controllers/authController');
 
 const router = express.Router();
 
-// @route   POST /api/auth/register
+// Public routes
 router.post('/register', registerUser);
-
-// @route   POST /api/auth/login
+router.post('/verify-email', verifyEmailOTP);
 router.post('/login', loginUser);
+router.post('/verify-login', verifyLoginOTP);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password', resetPassword);
+router.post('/resend-otp', resendOTP);
 
-// @route   POST /api/auth/logout
-router.post('/logout', logoutUser);
+// Private routes (require login)
+router.post('/logout', protect, logoutUser);
+router.post('/change-password', protect, changePassword);
+router.post('/verify-change-password', protect, verifyChangePassword);
 
 module.exports = router;
